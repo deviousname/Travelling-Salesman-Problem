@@ -44,47 +44,6 @@ def two_opt(path, points):
             swap(path, i, j)
     return best_path
 
-def distance(p1, p2):
-    return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
-
-def generate_points(n):
-    points = []
-    for i in range(n):
-        points.append((random.randint(0, 100), random.randint(0, 100)))
-    return points
-
-def generate_path(points):
-    path = []
-    for i in range(len(points)):
-        path.append(i)
-    random.shuffle(path)
-    return path
-
-def path_length(path, points):
-    length = 0
-    for i in range(len(path) - 1):
-        length += distance(points[path[i]], points[path[i + 1]])
-    length += distance(points[path[0]], points[path[-1]])
-    return length
-
-def swap(path, i, j):
-    temp = path[i]
-    path[i] = path[j]
-    path[j] = temp
-
-def two_opt(path, points):
-    best_path = path[:]
-    best_length = path_length(path, points)
-    for i in range(len(path) - 1):
-        for j in range(i + 1, len(path)):
-            swap(path, i, j)
-            length = path_length(path, points)
-            if length < best_length:
-                best_path = path[:]
-                best_length = length
-            swap(path, i, j)
-    return best_path
-
 def main():
     pygame.init()
     screen = pygame.display.set_mode((500, 500))
