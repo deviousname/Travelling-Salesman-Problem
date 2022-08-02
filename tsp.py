@@ -1,10 +1,7 @@
-"""
-1. Create the perfect solution to the Travelling Salesman Problem that does not use an exponential amount time.
-"""
-
 import random
 import math
 import time
+import pygame
 
 def distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
@@ -46,24 +43,6 @@ def two_opt(path, points):
                 best_length = length
             swap(path, i, j)
     return best_path
-
-def main():
-    points = generate_points(10)
-    path = generate_path(points)
-    print(path)
-    print(path_length(path, points))
-    path = two_opt(path, points)
-    print(path)
-    print(path_length(path, points))
-
-"""
-2. Display the results of the Travelling Salesman Problem in Pygame
-"""
-
-import pygame
-import random
-import math
-import time
 
 def distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
