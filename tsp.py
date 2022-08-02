@@ -4,7 +4,7 @@ import time
 import pygame
 
 width, height = 500, 500
-
+amount_of_cities = 25
 def distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
@@ -51,7 +51,7 @@ def main():
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Travelling Salesman Problem")
     screen.fill((255, 255, 255))
-    points = generate_points(100)
+    points = generate_points(amount_of_cities)
     path = generate_path(points)
     print(path)
     print(path_length(path, points))
