@@ -3,13 +3,15 @@ import math
 import time
 import pygame
 
+width, height = 500, 500
+
 def distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
 def generate_points(n):
     points = []
     for i in range(n):
-        points.append((random.randint(0, 100), random.randint(0, 100)))
+        points.append((random.randint(0, width), random.randint(0, height)))
     return points
 
 def generate_path(points):
@@ -46,7 +48,7 @@ def two_opt(path, points):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((500, 500))
+    screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Travelling Salesman Problem")
     screen.fill((255, 255, 255))
     points = generate_points(100)
